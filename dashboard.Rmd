@@ -2,7 +2,7 @@
 title: "Dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: rows
+    orientation: columns
     vertical_layout: fill
 ---
 
@@ -36,10 +36,26 @@ plot2 = rest_inspec%>%
 
 
 ```{r plot3, include = FALSE, message = FALSE, warning = FALSE}
-
+plot3 = rest_inspec%>%  drop_na(score) %>%
+  sample_n(1000)
  
 ```
 
+Column {data-width=600}
+-----------------------------------------------------------------------
+```{r box}
+
+plot2 %>%
+  plot_ly(y = ~score, color = ~cuisine_description, type = "box", colors = "viridis", showlegend = FALSE) %>%
+  layout(title = 'Distribution of scores for European cuisines',
+         xaxis = list(title = 'Cuisine',
+                      zeroline = TRUE),
+         yaxis = list(title = 'Score'))
+```
+
+
+Column {data-width=400}
+-----------------------------------------------------------------------
 
 ```{r trends}
 
@@ -52,14 +68,12 @@ plot1 %>%
          yaxis = list(title = 'Number of violations'))
 ```
 
------------------------------------------------------------------------
+```{r scatter}
 
-```{r box}
-
-plot2 %>%
-  plot_ly(y = ~score, color = ~cuisine_description, type = "box", colors = "viridis", showlegend = FALSE) %>%
-  layout(title = 'Distribution of scores for European cuisines',
-         xaxis = list(title = 'Cuisine',
+plot3%>%
+  plot_ly(y = ~score, x = ~boro, type = "scatter", mode = "markers") %>%
+  layout(title = 'Violation scores for different boroughs',
+         xaxis = list(title = 'Borough',
                       zeroline = TRUE),
          yaxis = list(title = 'Score'))
 ```
