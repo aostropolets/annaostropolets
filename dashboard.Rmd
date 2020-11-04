@@ -13,9 +13,33 @@ library(p8105.datasets)
 library(tidyverse)
 library(plotly)
 library(flexdashboard)
+library(lubridate)
+data("rest_inspec")
 ```
 
-```{r data, include=FALSE}
-data("rest_inspec")
-view(rest_inspec)
+```{r plot1, include = FALSE, message = FALSE, warning = FALSE}
+
+plot1 = sample_n(rest_inspec, 1000) %>%
+filter(grade %in% c("A", "B", "C")) %>%
+mutate_at(vars(grade_date), funs(year, month, day)) %>%
+group_by(year, grade) %>%
+count()  
+ 
+```
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Plot 1
+
+```{r trends}
+
+plot1 %>%
+  plot_ly(
+    x = ~year, y = ~n, type = "bar", color = ~grade) %>%
+  layout(title = 'Distribution of detected violations across years group by year',
+         xaxis = list(title = 'Year',
+                      zeroline = TRUE),
+         yaxis = list(title = 'Number of violations'))
 ```
