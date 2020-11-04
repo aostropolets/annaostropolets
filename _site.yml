@@ -3,10 +3,20 @@ output_dir: "."
 navbar:
   title: "Home"
   left:
+    - text: "About"
+      href: about.html
+    - text: "Dashboard"
+      href: dashboard.html  
+  right:    
     - icon: fa-envelope fa-lg
       href: mailto:<ao267@columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/aostropolets
+    - icon: fa-google fa-lg
+      href: https://scholar.google.com/citations?user=Fv-rDssAAAAJ   
+    - icon: fa-file fa-lg
+      href: ./files/CV_Anna_Ostropolets.pdf  
+
 output:
   html_document:
-    theme: cerulean
+    theme: yeti
