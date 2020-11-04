@@ -1,0 +1,12 @@
+name: "Anna Ostropolets"
+output_dir: "."
+navbar:
+  title: "Home"
+  left:
+    - icon: fa-envelope fa-lg
+      href: mailto:<ao267@columbia.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/aostropolets
+output:
+  html_document:
+    theme: cerulean

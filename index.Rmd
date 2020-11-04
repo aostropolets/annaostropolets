@@ -1,18 +1,6 @@
 ---
-title: "Anna Ostropolets"
+title: "About this website"
 output: html_document
 ---
 
-
-<br><img src="images/profile.png" style="width:25%; border:4px solid"><br>
-
-## About me
-I'm a PhD Student in the [Department of Biomedical Informatics](https://www.dbmi.columbia.edu) adviced by [George Hripcsak](https://www.dbmi.columbia.edu/profil/george-hripcsak/). My research concerns using observational data for generating real-world evidence, from observational study design and ontology engineering all the way to delivering evidence to clinicians.
-
-Before my PhD I graduated from Kharkiv Medical University magna cum laude and completed my residency in internal medicine. Actve OHDSI collaborator.
-
-
-## Updates
-
-Discussing standardized processes for phenotype development and evaluation at the [OHDSI 2020 Symposium](https://www.ohdsi.org/2020-ohdsi-global-symposium/).
-
+This is a website created for P8105 course (Homework 4). It contains my info, some links to my work and other sources and a dashboard with plots.
