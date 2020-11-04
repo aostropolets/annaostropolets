@@ -27,11 +27,19 @@ count()
  
 ```
 
+```{r plot2, include = FALSE, message = FALSE, warning = FALSE}
+plot2 = rest_inspec%>%
+  drop_na(grade) %>%
+  filter(cuisine_description %in% c("French", "English","Polish","Portuguese", "Greek", "Italian" )) %>%
+  sample_n(1000)
+```
 
-Column {data-width=650}
------------------------------------------------------------------------
 
-### Plot 1
+```{r plot3, include = FALSE, message = FALSE, warning = FALSE}
+
+ 
+```
+
 
 ```{r trends}
 
@@ -42,4 +50,16 @@ plot1 %>%
          xaxis = list(title = 'Year',
                       zeroline = TRUE),
          yaxis = list(title = 'Number of violations'))
+```
+
+-----------------------------------------------------------------------
+
+```{r box}
+
+plot2 %>%
+  plot_ly(y = ~score, color = ~cuisine_description, type = "box", colors = "viridis", showlegend = FALSE) %>%
+  layout(title = 'Distribution of scores for European cuisines',
+         xaxis = list(title = 'Cuisine',
+                      zeroline = TRUE),
+         yaxis = list(title = 'Score'))
 ```
